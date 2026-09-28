@@ -1,4 +1,4 @@
-# Unit 2 · Reproduction
+﻿# Unit 2 Â· Reproduction
 
 GitHub username: SKC999
 
@@ -6,7 +6,7 @@ Issue: https://github.com/codepath/pathreview-ai301-fa26-s3/issues/1
 
 ## Claim comment
 
-Link: PASTE-CLAIM-COMMENT-LINK-HERE
+Link: https://github.com/codepath/pathreview-ai301-fa26-s3/issues/1#issuecomment-5862536862
 
 Text as posted:
 
@@ -16,7 +16,7 @@ Reflection. I wrote the claim before reproducing anything. So every sentence pro
 
 ## Repro comment
 
-Link: PASTE-REPRO-COMMENT-LINK-HERE
+Link: https://github.com/codepath/pathreview-ai301-fa26-s3/issues/1#issuecomment-5862549271
 
 Text as posted:
 
