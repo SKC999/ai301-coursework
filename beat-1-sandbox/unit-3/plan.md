@@ -60,7 +60,7 @@ Out of scope is removing old vectors when a repo is re-ingested with changed con
 
 ## Deviations
 
-The code change matches the plan. I touched only `ingestion/pipeline.py` and the new `tests/unit/test_pipeline_dedup.py`. The approach steps 1 to 6 went in as written on the branch `fix/1-ingest-skip-check`. The change is commit `d94cdda` and the regression tests are commit `f3c69cc`.
+The code change matches the plan. I touched only `ingestion/pipeline.py` and the new `tests/unit/test_pipeline_dedup.py`. The approach steps 1 to 6 went in as written on the branch `fix/1-ingest-skip-check` in commits `d94cdda` (the fix) and `f3c69cc` (the regression tests).
 
 The test environment changed. I ran the before and after checks in a Linux sandbox linked to my machine. It had Python 3.10.12 and SQLAlchemy 2.0.54 instead of the Windows 11 setup with Python 3.13.3 and SQLAlchemy 2.1.1 from my repro. The chromadb version was the same at 1.5.9.
 
@@ -69,3 +69,13 @@ That sandbox cannot download the tiktoken `cl100k_base` file that the semantic c
 The repro script setup change needed one more import than I wrote. Creating the table needs `IngestedSource` from `core.models` and `CreateTable` from SQLAlchemy. The `"profile-1"` profile id from my repro still worked on SQLite so I kept it.
 
 The results matched the test plan. Before the fix the second ingest showed `skipped=False` with `embed_calls=2` and 2 of the 3 new tests failed. After the fix the second ingest showed `skipped=True chunk_count=0 embed_calls=1 vectors_in_store=3` with no warning and all 3 tests passed. My posted plan comment is still accurate so I do not need a follow-up comment about a change of plan.
+
+### Unit 4 changes before opening the PR
+
+Running the repo's own checks for the PR showed two problems in my branch. Both are in the same two files and change no behavior.
+
+The new tests never ran under `make test-unit`. That target runs pytest with `-m unit` and my test file had no `unit` marker, so its 3 tests showed as deselected. Commit `be0164b` adds `pytestmark = pytest.mark.unit` to `tests/unit/test_pipeline_dedup.py`. The same commit formats that file with black.
+
+CI runs `black --check .` and it failed on my two files. I had wrapped a function signature and two calls that fit the repo's 100 character line limit. Commit `6dbecd2` runs black on `ingestion/pipeline.py`. Black on my two files touched only lines this branch added.
+
+The unit 4 evidence ran in a different Linux sandbox with Python 3.13.16 and SQLAlchemy 2.1.4. The results matched the test plan again. Issue #1 has no seeded `xfail` marker and no `pyproject.toml` suppression, so there was nothing to remove.
