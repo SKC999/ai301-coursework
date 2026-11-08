@@ -25,13 +25,13 @@ fill it there):
 update, or "nothing"]
 ```
 
-**Unit 5: Search strategy written and the scout scan not run for this issue**
+**Unit 5: Scout installed and strategy written with one real grade run**
 
-I wrote my fit profile and a search strategy with four gh queries and eight ranking filters. I did not run a scout scan or grade candidate issues with it for this contribution. I found my issue by hand with GitHub search instead. That showed me a gap in my filters because a comment count cannot tell a claim from a question. Two of my first three candidates had claim comments already and my strategy would not have dropped them.
+I installed the scout on October 20 and wrote my fit profile and a search strategy with four gh queries and eight ranking filters. I ran a scan earlier but I never saved its output and it was lost when my course API account stopped working. So I cannot show its verdicts. After I had claimed my issue and opened my PR I graded it with the scout and it returned reject. The only failing check was Issue is unclaimed because my own claim comment and my own PR counted as a claim. The grade also showed that the fit profile in my scope.md was still a placeholder.
 
 **Unit 6: Voice guard and repo memory file not built**
 
-I did not install the voice guard or write a repo memory file for this contribution. I wrote the claim comment with Claude and posted it from my browser. Nothing checked it automatically. I checked it by hand against the repo's claim rules in CONTRIBUTING.md and by reading the whole issue thread first. Nothing broke but I have no hook evidence to show for it.
+I did not install the voice guard or write a repo memory file for this contribution. I wrote the claim comment with Claude and posted it from my browser. Nothing checked it automatically. I checked it by hand against the repo's claim rules in CONTRIBUTING.md and by reading the whole issue thread first. Nothing broke but I have no hook evidence to show for it. I also never applied the unit 6 scope patch so my rubric is still the version from September 20.
 
 **Unit 7: Ship-gate and manifest not built and checks run by hand**
 
@@ -49,14 +49,16 @@ I searched GitHub for open issues labelled good first issue and bug with Python 
 
 It fits my profile because it is a real Python bug in a project I can run locally and it is not documentation only. The fix is one function and the tests sit right beside it. The issue also says exactly what done looks like and what must not change. I hope to learn how to find my way around a large unfamiliar repo and how its test helpers build a database for a unit test. I also want to practice following a repo's own claim and PR rules.
 
-My scout had no part in this pick because I never ran it for this issue. Where my search strategy fell short on a real search is that it filters by comment count and a claim comment counts as just one comment. If I rebuilt it I would add a rule that reads the thread for claim language. I claimed the issue before starting and my claim comment is at https://github.com/repowise-dev/repowise/issues/5361#issuecomment-6727457957
+I installed my scout on October 20 but I did not use it to pick issue 5361. A scan I ran earlier was lost because I never saved the output and my course API account stopped working. I graded the issue with the scout only after I had claimed it and opened my PR. The verdict was reject. Five checks passed. They were that the issue is open and not stale and that the maintainer is active and the repo is not dormant and the issue is scoped. The one failing check was Issue is unclaimed because the only claim comment and the only linked PR are mine.
+
+I am choosing this issue against the scout's verdict and my reason is that the failing check measures my own claim and not someone else's. Nobody else is working on it. That is where the scout fell short on a real search because its unclaimed check cannot tell my own claim from a stranger's. The scout also showed that my scope.md fit profile was still a placeholder so scans had nothing to rank against. I have not yet changed the rubric but I would make that check ignore comments and PRs from my own account. I claimed the issue before starting and my claim comment is at https://github.com/repowise-dev/repowise/issues/5361#issuecomment-6727457957
 
 **Toolkit**
 
-- Tool: issue-scout was not run for this pick. I used my written search strategy as a manual checklist on GitHub search and read each thread myself.
-- What it produced: A shortlist of four issues of which three were already claimed or had open PRs. The fourth was issue 5361.
-- Difficulties: Comment count did not reveal claims and the repo CONTRIBUTING.md treats a claim comment as a reservation even with no assignee.
-- What changed: I read every thread before choosing. I would add a claim language check to my filters.
+- Tool: issue-scout. I used my written search strategy as a manual checklist to find the issue and then graded issue 5361 with the scout on November 8 after claiming it.
+- What it produced: A reject verdict with five passes and one fail. The fail was Issue is unclaimed because my own comment and my own PR 5381 count as a claim.
+- Difficulties: The unclaimed check cannot tell my own claim from a stranger's. My scope.md fit profile was still a placeholder. My comment count filter also missed claim comments when I searched by hand.
+- What changed: Nothing in the rubric yet. I would make the unclaimed check ignore my own account and I would paste my fit profile into scope.md.
 
 ---
 
@@ -189,7 +191,7 @@ I opened the PR and first overwrote the repo's PR template by mistake. I caught 
 
 **PR Link:** https://github.com/repowise-dev/repowise/pull/5381
 
-**PR Description:** The PR follows the repo template. It explains that the fix strips trailing sentence punctuation and skips the closing period after an ellipsis. It says what is not changed and shows before and after notices. It lists the tests and lint I ran and the ones I left to CI. It says that Claude helped write the fix and tests and that I left the Claude co-author trailer off the commits as CONTRIBUTING asks.
+**PR Description:** The PR follows the repo template. It explains that the fix strips trailing sentence punctuation and skips the closing period after an ellipsis. It says what is not changed and shows before and after notices. It lists the tests and lint I ran and the ones I left to CI. It says that Claude helped write the fix and tests and that I left the Claude co-author trailer off the commits as CONTRIBUTING asks. The issue also says that open PR 2345 edits the same file so I may need to rebase after it lands.
 
 **Maintainer Feedback:**
 
