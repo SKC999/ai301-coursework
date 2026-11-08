@@ -27,7 +27,7 @@ update, or "nothing"]
 
 **Unit 5: Scout installed and strategy written with one real grade run**
 
-I installed the scout on October 20 and wrote my fit profile and a search strategy with four gh queries and eight ranking filters. I ran a scan earlier but I never saved its output and it was lost when my course API account stopped working. So I cannot show its verdicts. After I had claimed my issue and opened my PR I graded it with the scout and it returned reject. The only failing check was Issue is unclaimed because my own claim comment and my own PR counted as a claim. The grade also showed that the fit profile in my scope.md was still a placeholder.
+I installed the scout on October 20 and wrote my fit profile and a search strategy with four gh queries and eight ranking filters. I ran a scan earlier but I never saved its output and it was lost when my course API account stopped working. So I cannot show its verdicts. After I had claimed my issue and opened my PR I graded it with the scout and it returned reject. The only failing check was Issue is unclaimed because my own claim comment and my own PR counted as a claim. The grade also showed that the fit profile in my scope.md was still a placeholder. Afterwards on November 8 I created scan-notes.md in the scout folder with a dated note about the own-claim failure. I also appended a note to rubric.md saying the unclaimed check should ignore claims from my own account, and I added a real fit profile to scope.md.
 
 **Unit 6: Voice guard and repo memory file not built**
 
@@ -58,7 +58,7 @@ I am choosing this issue against the scout's verdict and my reason is that the f
 - Tool: issue-scout. I used my written search strategy as a manual checklist to find the issue and then graded issue 5361 with the scout on November 8 after claiming it.
 - What it produced: A reject verdict with five passes and one fail. The fail was Issue is unclaimed because my own comment and my own PR 5381 count as a claim.
 - Difficulties: The unclaimed check cannot tell my own claim from a stranger's. My scope.md fit profile was still a placeholder. My comment count filter also missed claim comments when I searched by hand.
-- What changed: Nothing in the rubric yet. I would make the unclaimed check ignore my own account and I would paste my fit profile into scope.md.
+- What changed: On November 8 I added scan-notes.md with a dated note about the failure. I appended a dated update to rubric.md saying the unclaimed check must ignore claims and PRs from my own account. I also added a fit profile to scope.md covering language, issue type, size and what to skip. I appended these as notes and did not rewrite the original check text. I have not rerun the scout since the change.
 
 ---
 
